@@ -46,7 +46,6 @@ GOPATH ?= ${HOME}/go
 # Environment variables set when running the Go compiler.
 GO_BUILD_ENVVARS = \
 	GOOS=linux \
-	GOARCH=amd64 \
 	CGO_ENABLED=0 \
 
 .PHONY: help

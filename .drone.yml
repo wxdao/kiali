@@ -1,0 +1,20 @@
+---
+kind: pipeline
+name: arm64
+
+platform:
+  os: linux
+  arch: arm64
+
+workspace:
+  base: /go
+  path: src/github.com/kiali/kiali
+
+steps:
+- name: build
+  image: golang:1.9.4
+  commands:
+  - export GO_FILES="$(find . -iname '*.go' -type f | grep -v /vendor/)"
+  - go test
+  - make dep-install
+  - make clean build
